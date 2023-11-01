@@ -1,0 +1,28 @@
+# Use an official Node.js runtime as the base image
+FROM node:14
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+
+ENV PORT=3030
+ENV POSTGRES_HOST: postgres
+ENV POSTGRES_PORT: 5432
+ENV POSTGRES_DB: postgres
+ENV POSTGRES_USER: postgres
+ENV POSTGRES_PASSWORD: 123456
+
+# Install application dependencies
+RUN npm install
+RUN npm install -g nodemon
+# Copy the rest of your application source code
+COPY . .
+
+# Expose the port your Node.js application will run on
+EXPOSE 3030
+
+# Define the command to start your Node.js application
+CMD ["npm", "start"]
