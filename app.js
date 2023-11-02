@@ -5,7 +5,7 @@ require('dotenv').config()
 const app = express()
 const pool = require('./Postgres/db')
 const bodyParser = require('body-parser')
-const ingestionRoutes = require('./Routes/IngestionRoutes')
+// const ingestionRoutes = require('./Routes/IngestionRoutes')
 const userRoutes = require('./Routes/UserRoutes')
 const creditRoutes = require('./Routes/CreditsRoutes')
 const loanRoutes = require('./Routes/LoanRoutes')
@@ -13,9 +13,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-app.post('/customerdata',ingestionRoutes.customerDataIngestion)
+// app.post('/customerdata',ingestionRoutes.customerDataIngestion)
 
-app.post('/loandata', ingestionRoutes.loanDataIngestion)
+// app.post('/loandata', ingestionRoutes.loanDataIngestion)
 
   app.post('/register',userRoutes.userRegister)
 
